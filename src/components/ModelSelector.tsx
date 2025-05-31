@@ -33,13 +33,32 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="yolo" id="yolo" />
           <Label htmlFor="yolo" className="cursor-pointer">
-            YOLO
+            YOLOv11
           </Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="rcnn" id="rcnn" />
           <Label htmlFor="rcnn" className="cursor-pointer">
-            RCNN
+            FASTER R-CNN
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="One Image" id="One_Image" />
+          <Label htmlFor="One_Image" className="cursor-pointer">
+            One Image
+          </Label>
+        </div>
+        <hr className="my-2 border-t border-gray-300" />
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="YOLO v11 -- Lower FPS" id="yolo_low" />
+          <Label htmlFor="yolo_low" className="cursor-pointer">
+            YOLOv11 -- Lower FPS
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="FASTER R-CNN -- Lower FPS" id="rcnn_lower" />
+          <Label htmlFor="rcnn_lower" className="cursor-pointer">
+            FASTER R-CNN -- Lower FPS
           </Label>
         </div>
       </RadioGroup>

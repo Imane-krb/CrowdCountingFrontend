@@ -35,10 +35,21 @@ const Index = () => {
       return;
     }
 
-//detect_yolo
+    //detect_yolo
 
-    const endpoint = selectedModel === "yolo" ? "https://50b7-196-118-4-101.ngrok-free.app/aimodel/test" : "https://50b7-196-118-4-101.ngrok-free.app/aimodel/detect_fasterrcnn";
-    
+    //const endpoint = selectedModel === "yolo" ? "https://50b7-196-118-4-101.ngrok-free.app/aimodel/detect_yolo" : "https://50b7-196-118-4-101.ngrok-free.app/aimodel/detect_fasterrcnn";
+    let endpoint
+    if (selectedModel == "One Image") {
+      endpoint = "http://127.0.0.1:8000/aimodel/detect_image"
+    } else if (selectedModel == "yolo") {
+      endpoint = "http://127.0.0.1:8000/aimodel/detect_yolo"
+    } else if (selectedModel == "rcnn"){
+      endpoint = "http://127.0.0.1:8000/aimodel/detect_fasterrcnn"
+    } else if (selectedModel == "YOLO v11 -- Lower FPS") {
+      endpoint = "http://127.0.0.1:8000/aimodel/detect_yolo_lower_fps"
+    } else if (selectedModel == "FASTER R-CNN -- Lower FPS") {
+      endpoint = "http://127.0.0.1:8000/aimodel/detect_fasterrcnn_lower_fps"
+    }
     const formData = new FormData();
     formData.append("file", selectedFile);
     
@@ -68,6 +79,8 @@ const Index = () => {
 
       // Since your backend returns the video file directly, create a blob URL
       const blob = await response.blob();
+      const listCount = response
+      console.log(listCount)
       const videoUrl = URL.createObjectURL(blob);
       setResultUrl(videoUrl);
 
